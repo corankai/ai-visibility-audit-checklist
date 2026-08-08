@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>AI Visibility Audit Worksheet | Corank</title>
+  <meta name="description" content="A free interactive worksheet for auditing AI-search coverage, citation evidence, technical accessibility, and entity consistency.">
+  <style>
+    :root{--ink:#14213d;--muted:#52606d;--line:#dce3ea;--soft:#f6f8fb;--brand:#5b3df5;--good:#16835b;--warn:#b46a00}
+    *{box-sizing:border-box}body{margin:0;font:16px/1.55 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:linear-gradient(135deg,#f7f5ff,#f3f9ff 55%,#fff)}
+    main{max-width:1020px;margin:auto;padding:48px 20px 80px}.hero{background:#fff;border:1px solid var(--line);border-radius:24px;padding:34px;box-shadow:0 16px 50px rgba(40,55,95,.09)}
+    .eyebrow{font-weight:800;color:var(--brand);letter-spacing:.08em;text-transform:uppercase;font-size:.78rem}.hero h1{font-size:clamp(2rem,5vw,3.5rem);line-height:1.05;margin:.35rem 0 1rem}
+    .hero p{max-width:760px;color:var(--muted);font-size:1.08rem}.hero a,.footer a{color:var(--brand);font-weight:750}.controls{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:24px}
+    label.field{font-weight:700}.field input{display:block;width:100%;margin-top:6px;padding:11px 12px;border:1px solid #bcc7d3;border-radius:10px;font:inherit}
+    .layout{display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:24px;margin-top:24px}.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px;margin-bottom:18px}
+    .card h2{margin:0 0 4px;font-size:1.35rem}.card>p{color:var(--muted);margin-top:0}.item{display:grid;grid-template-columns:24px 1fr;gap:10px;padding:10px 0;border-top:1px solid #edf1f5}
+    .item input{width:18px;height:18px;margin-top:3px;accent-color:var(--brand)}.item strong{display:block}.item span{color:var(--muted);font-size:.92rem}
+    aside{position:sticky;top:20px;align-self:start}.score{font-size:3.6rem;font-weight:900;line-height:1}.score small{font-size:1rem;color:var(--muted)}.meter{height:12px;background:#edf0f5;border-radius:99px;overflow:hidden;margin:14px 0}.meter div{height:100%;width:0;background:linear-gradient(90deg,var(--brand),#00a6a6);transition:.2s}
+    .status{font-weight:800}.next{color:var(--muted);font-size:.94rem}.actions{display:grid;gap:9px;margin-top:18px}button{border:0;border-radius:10px;padding:11px 14px;font-weight:800;cursor:pointer}
+    button.primary{background:var(--brand);color:white}button.secondary{background:#edf0f7;color:var(--ink)}.legend{font-size:.84rem;color:var(--muted);margin-top:12px}
+    .footer{margin-top:28px;color:var(--muted);text-align:center}.print-title{display:none}
+    @media(max-width:760px){.controls,.layout{grid-template-columns:1fr}aside{position:static}.hero{padding:24px}}
+    @media print{body{background:#fff}.hero,.card,aside{box-shadow:none}button{display:none}.layout{display:block}aside{margin-bottom:18px}.print-title{display:block}}
+  </style>
+</head>
+<body>
+<main>
+  <section class="hero">
+    <div class="eyebrow">Open diagnostic worksheet</div>
+    <h1>AI Visibility Audit</h1>
+    <p>Use this worksheet to find the weakest part of an AI-search program: answer coverage, citation evidence, technical accessibility, or entity consistency. It is a practical companion to the <a href="https://github.com/corankai/ai-visibility-audit-checklist">full audit checklist</a>, created by <a href="https://corank.ai">Corank</a>.</p>
+    <div class="controls">
+      <label class="field">Brand or product<input id="brand" placeholder="Example: Acme"></label>
+      <label class="field">Audit date<input id="date" type="date"></label>
+    </div>
+  </section>
+
+  <div class="layout">
+    <div>
+      <section class="card" data-section="Coverage">
+        <h2>1. Answer coverage</h2><p>Does the brand appear across a balanced, repeatable prompt set?</p>
+        <label class="item"><input type="checkbox"><div><strong>Frozen prompt set exists</strong><span>A stable core set covers discovery, problem, comparison, evaluation, implementation, and trust intents.</span></div></label>
+        <label class="item"><input type="checkbox"><div><strong>Unprompted visibility is tested</strong><span>Prompts do not name the brand and represent how real buyers ask for options.</span></div></label>
+        <label class="item"><input type="checkbox"><div><strong>Multiple answer engines are sampled</strong><span>The same prompts are tested on the engines and surfaces relevant to the audience.</span></div></label>
+        <label class="item"><input type="checkbox"><div><strong>Recommendation strength is separated</strong><span>Mentions, shortlists, comparisons, and explicit recommendations are not treated as identical.</span></div></label>
+        <label class="item"><input type="checkbox"><div><strong>Methodology is versioned</strong><span>Model, surface, location, login state, time, and collection changes are recorded.</span></div></label>
+      </section>
+
+      <section class="card" data-section="Evidence">
+        <h2>2. Citation evidence</h2><p>Can an answer engine find strong owned and independent support for important claims?</p>
+        <label class="item"><input type="checkbox"><div><strong>Every citation URL is captured</strong><span>Sources are normalized before counting so tracking parameters and variants do not inflate results.</span></div></label>
+        <label class="item"><input type="checkbox"><div><strong>Core claims have owned evidence</strong><span>Capabilities, audience, pricing, limitations, and use cases appear on clear canonical pages.</span></div></label>
+        <label class="item"><input type="checkbox"><div><strong>Independent evidence exists</strong><span>Relevant editorial, expert, directory, dataset, or customer sources corroborate key facts.</span></div></label>
+        <label class="item"><input type="checkbox"><div><strong>Referring domains are diversified</strong><span>Citations are not concentrated on one publisher, syndication host, or fragile page type.</span></div></label>
+        <label class="item"><input type="checkbox"><div><strong>Lost and gained sources are tracked</strong><span>Reporting explains changes in citation mix instead of only showing a blended score.</span></div></label>
+      </section>
+
+      <section class="card" data-section="Technical">
+        <h2>3. Technical accessibility</h2><p>Are citation-ready facts available in stable, crawlable, well-described pages?</p>
+        <label class="item"><input type="checkbox"><div><strong>Important URLs are stable</strong><span>Pages return 200, use intended canonicals, and avoid unnecessary redirect chains.</span></div></label>
+        <label class="item"><input type="checkbox"><div><strong>Main claims are in rendered HTML</strong><span>Essential evidence is not hidden behind interactions or available only inside images.</span></div></label>
+        <label class="item"><input type="checkbox"><div><strong>Robots rules are intentional</strong><span>Valuable resources are not accidentally excluded from appropriate crawlers.</span></div></label>
+        <label class="item"><input type="checkbox"><div><strong>Structured data is accurate</strong><span>Organization, product, article, FAQ, author, date, and breadcrumb details match visible content.</span></div></label>
+        <label class="item"><input type="checkbox"><div><strong>Discovery paths are clear</strong><span>Sitemaps and internal links lead to current canonical evidence pages.</span></div></label>
+      </section>
+
+      <section class="card" data-section="Entity">
+        <h2>4. Entity consistency</h2><p>Do first-party and third-party sources describe the same company accurately?</p>
+        <label class="item"><input type="checkbox"><div><strong>Name and domain are consistent</strong><span>Major profiles use the canonical company name and website.</span></div></label>
+        <label class="item"><input type="checkbox"><div><strong>Category language aligns</strong><span>Descriptions adapt to each platform without contradicting the underlying positioning.</span></div></label>
+        <label class="item"><input type="checkbox"><div><strong>People and organization links are clear</strong><span>Founder, author, publisher, and company relationships are stated truthfully.</span></div></label>
+        <label class="item"><input type="checkbox"><div><strong>Commercial facts match</strong><span>Pricing, availability, capabilities, and limitations do not conflict across sources.</span></div></label>
+        <label class="item"><input type="checkbox"><div><strong>Stale profiles are handled</strong><span>Old positioning is corrected, redirected, or clearly dated where edits are impossible.</span></div></label>
+      </section>
+    </div>
+
+    <aside class="card">
+      <div class="eyebrow">Readiness snapshot</div>
+      <div class="score"><span id="score">0</span><small>/100</small></div>
+      <div class="meter"><div id="bar"></div></div>
+      <div class="status" id="status">Start with the checklist</div>
+      <p class="next" id="next">The lowest section will become the first recommended workstream.</p>
+      <div class="actions">
+        <button class="primary" id="copy">Copy summary</button>
+        <button class="secondary" id="print">Print worksheet</button>
+        <button class="secondary" id="reset">Reset</button>
+      </div>
+      <p class="legend">This score is a prioritization aid, not a ranking guarantee. Re-run with the same method to compare progress.</p>
+    </aside>
+  </div>
+  <p class="footer">Need a deeper prompt, citation, technical, and authority audit? Visit <a href="https://corank.ai">Corank</a>.</p>
+</main>
+<script>
+  var boxes = Array.from(document.querySelectorAll('input[type="checkbox"]'));
+  var sections = Array.from(document.querySelectorAll('[data-section]'));
+  document.getElementById('date').valueAsDate = new Date();
+
+  function sectionData(){
+    return sections.map(function(section){
+      var own = Array.from(section.querySelectorAll('input[type="checkbox"]'));
+      var done = own.filter(function(box){return box.checked}).length;
+      return {name:section.dataset.section,done:done,total:own.length,percent:Math.round(done/own.length*100)};
+    });
+  }
+
+  function update(){
+    var done = boxes.filter(function(box){return box.checked}).length;
+    var score = Math.round(done/boxes.length*100);
+    document.getElementById('score').textContent = score;
+    document.getElementById('bar').style.width = score + '%';
+    var state = score < 30 ? 'Evidence system not established' : score < 60 ? 'Foundation in progress' : score < 85 ? 'Operational, with clear gaps' : 'Strong audit readiness';
+    document.getElementById('status').textContent = state;
+    var weakest = sectionData().sort(function(a,b){return a.percent-b.percent})[0];
+    document.getElementById('next').textContent = 'First workstream: ' + weakest.name + ' (' + weakest.done + '/' + weakest.total + ' checks).';
+    localStorage.setItem('corankAuditBoxes',JSON.stringify(boxes.map(function(box){return box.checked})));
+  }
+
+  boxes.forEach(function(box){box.addEventListener('change',update)});
+  var saved = JSON.parse(localStorage.getItem('corankAuditBoxes') || '[]');
+  saved.forEach(function(value,index){if(boxes[index]) boxes[index].checked=value});
+  update();
+
+  document.getElementById('copy').addEventListener('click',function(){
+    var brand = document.getElementById('brand').value || 'Unnamed brand';
+    var lines = sectionData().map(function(item){return '- ' + item.name + ': ' + item.done + '/' + item.total + ' (' + item.percent + '%)'});
+    var summary = brand + ' — AI Visibility Audit
+Score: ' + document.getElementById('score').textContent + '/100
+' + lines.join('
+') + '
+Next: ' + document.getElementById('next').textContent + '
+Worksheet: https://corankai.github.io/ai-visibility-audit-checklist/';
+    navigator.clipboard.writeText(summary).then(function(){document.getElementById('copy').textContent='Copied';setTimeout(function(){document.getElementById('copy').textContent='Copy summary'},1500)});
+  });
+  document.getElementById('print').addEventListener('click',function(){window.print()});
+  document.getElementById('reset').addEventListener('click',function(){boxes.forEach(function(box){box.checked=false});localStorage.removeItem('corankAuditBoxes');update()});
+</script>
+</body>
+</html>
